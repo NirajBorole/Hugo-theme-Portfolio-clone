@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>ScarCity</title>
+  <!-- 
+
+body {
+  --text-color: #222;
+  --bkg-color: #fff;
+}
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    --text-color: #eee;
+    --bkg-color: #121212;
+  }
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #fff;
+  }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+h1,
+p {
+  color: var(--text-color);
+}
+
+   -->
+  <style type="text/css">
+
+    input,input[type=text],input[type=email] {
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+    }
+
+    html,body {
+      box-sizing:border-box;
+      height:100%;
+      font-family: 'Montserrat';
+
+      display: grid;
+/*
+      --bg: #FCFCFC;
+      --bg-panel: #EBEBEB;
+      --color-headings: #0077FF;
+      --color-text: #333333;*/
+    }
+/*
+    html[data-theme='dark'] {
+      --bg: #333333;
+      --bg-panel: #434343;
+      --color-headings: #3694FF;
+      --color-text: #B5B5B5;
+    }
+
+*/
+    body {
+      --text-color: #222;
+      --bkg-color: #fff;
+    }
+    body.dark-theme {
+      --text-color: #eee;
+      --bkg-color: #121212;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      /* defaults to dark theme */
+      body {
+        --text-color: #eee;
+        --bkg-color: #121212;
+      }
+      body.light-theme {
+        --text-color: #222;
+        --bkg-color: #fff;
+      }
+    }
+
+
+    body {
+      background: var(--bkg-color);
+    }
+
+
+
+
+/* -------------------TOGGLE SWITCH HERE----------------------- */
+    input[type=checkbox] {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
+
+    label {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 52px;
+      height: 27px;
+      background: #C70039;
+      float: right;
+      border-radius: 100px;
+      position: relative;
+    }
+
+    label:after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 90px;
+      transition: 0.3s;
+    }
+
+    input:checked + label {
+      background: #C70039;
+    }
+
+    input:checked + label:after {
+      left: calc(100% - 5px);
+      transform: translateX(-100%);
+    }
+
+    label:active:after {
+      width: 45px;
+    }
+
+/*---------------------TOGGLE SWITCH ENDS HERE-------------------------*/
+   
+/*----------------------NAVBAR TRANSITION--------------------------*/
+
+
+    html.transition,
+    html.transition *,
+    html.transition *:before,
+    html.transition *:after {
+      transition: all 750ms !important;
+      transition-delay: 0 !important;
+    }
+
+    *,*:before,*:after {
+      padding:0;
+      margin:0;
+      box-sizing:inherit;
+    }
+    html {
+      font-family:-apple-system,BlinkMacSystemFont,segoe ui,Ubuntu,helvetica neue,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      font-size:95%;
+    }
+    @media screen and (min-width:800px) {
+      html {
+        font-size:100%
+      }
+    }
+    @media screen and (min-width:1400px) {
+      html {
+        font-size:115%
+      }
+    }
+
+/*-------------------------NAVBAR TRANSITION ENDS-------------------------*/
+
+
+/*-----------------------MISCELINIOUS SYLINGS------------------------*/
+
+    h1,h2,h3,h4,h5,h6,p {
+      color: var(--text-color);
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+      margin-top:1.5rem;
+      margin-bottom:0;
+      line-height:1.5rem
+    }
+    h1 {
+      font-size:2.121rem;
+      line-height:2.25rem;
+      margin-top:2.25rem
+    }
+    h2 {
+      font-size:1.414rem
+    }
+    h3 {
+      font-size:1.17833333rem
+    }
+    h4 {
+      font-size:.98194444rem
+    }
+    h5 {
+      font-size:.81828704rem
+    }
+    p {
+      margin-top:1.5rem;
+      margin-bottom:0;
+      line-height:1.5rem
+    }
+    ul,ol {
+      padding-left:1.5rem;
+      margin-top:1.5rem;
+      margin-bottom:1.5rem
+    }
+    ul li, ol li {
+      line-height:1.5rem
+    }
+    ul ul, ul ol, ol ul, ol ol {
+      margin-top:0;
+      margin-bottom:0
+    }
+    blockquote {
+      margin-top:1.5rem;
+      margin-bottom:1.5rem;
+      line-height:1.5rem;
+      color:#111
+    }
+    blockquote::before {
+      position:absolute;
+      content:"\201C";
+      font-size:6em;
+      font-family:roboto,serif;
+      margin-top:.1em;
+      margin-left:-.2em;
+      z-index:-1;
+      color:#ededed
+    }
+    blockquote cite {
+      font-style:italic;
+      font-size:.95em;
+      color:#717171
+    }
+    blockquote cite::before {
+      content:"— "
+    }
+    pre {
+      line-height:1.45;
+      margin-top:1.5rem;
+      padding:16px;
+      word-wrap:normal;
+      overflow:auto;
+      background-color:#f6f8fa;
+      border-radius:3px
+    }
+    code {
+      font-size:85%;
+      font-family:sfmono-regular,Consolas,Menlo,monospace;
+      padding:.2em .4em;
+      margin:0;
+      background-color:rgba(27,31,35,.05);
+      border-radius:3px
+    }
+    pre>code {
+      word-break:normal;
+      white-space:pre
+    }
+    pre code {
+      display:inline;
+      padding:0;
+      margin:0;
+      overflow:visible;
+      line-height:inherit;
+      word-wrap:normal;
+      background-color:transparent;
+      border:0
+    }
+
+    .lead {
+      font-size:1.414rem
+    }
+
+    abbr[title] {
+      text-decoration:underline double
+    }
+
+/*-----------------------MISCELINIOUS SYLINGS END HERE------------------------*/
+
+
+/*--------------------BURGER NAVBAR MENU STARTS HERE---------------------------*/
+
+
+    body.nav--active {
+      overflow:hidden;
+    }
+
+
+    .burger-container {
+      height:4rem;
+      display:flex;
+      align-items:center;
+      padding:0 1.5rem;
+      position:fixed;
+      width:100%;
+      background-color: var(--bg);
+      z-index:2
+    }
+    @media screen and (min-width:800px) {
+      .burger-container {
+        display:none
+      }
+    }
+    .burger {
+      position:relative;
+      width:28px;
+      height:28px;
+      cursor:pointer
+    }
+    .burger-style {
+      position:absolute;
+      width:28px;
+      height:2px;
+      background:#C70039;
+      top:calc(50% - 2px/2);
+      left:calc(50% - 28px/2);
+      transition:all 150ms ease-in
+    }
+    .burger-style1 {
+      transform:translateY(-10px)
+    }
+    .burger-style2 {
+      width:calc(28px - 6px)
+    }
+    .burger-style3 {
+      transform:translateY(10px)
+    }
+
+    .nav--active .burger-style1 {
+      transform:rotate(45deg)
+    }
+    .nav--active .burger-style2 {
+      opacity:0
+    }
+    .nav--active .burger-style3 {
+      transform:rotate(-45deg)
+    }
+    .nav {
+      font-size:16px;
+      position:fixed;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      visibility:hidden;
+      z-index:1
+    }
+    @media screen and (min-width:800px) {
+      .nav {
+        display:block;
+        visibility:visible;
+        padding-top:3em;
+        width:100px
+      }
+    }
+    .nav--active .nav {
+      visibility:visible;
+      height:100%;
+      width:100%
+    }
+    .nav-list {
+      text-align:right;
+      list-style:none;
+      margin:0;
+      padding:0;
+      width:50%
+    }
+    @media screen and (min-width:800px) {
+      .nav-list {
+        width:auto
+      }
+    }
+    @media screen and (max-width:799px) {
+      .nav-list {
+        transform:translateY(-25px);
+        opacity:0
+      }
+      .nav--active .nav-list {
+        transform:translateY(0);
+        opacity:1;
+        transition:all 500ms ease
+      }
+    }
+    .nav-list li {
+      margin-bottom:3em;
+      line-height:1.5em
+    }
+    .nav-list li:last-of-type {
+      margin-bottom:0
+    }
+    @media screen and (min-width:800px) {
+      .nav-list li {
+        margin-bottom:1.75em
+      }
+    }
+
+    .nav-list a {
+      color:#c70039;
+      text-decoration:none;
+      font-size:2em
+    }
+    .nav-list a.active {
+      color:#111
+    }
+    .nav-list a:hover {
+      color:#111
+    }
+    @media screen and (min-width:800px) {
+      .nav-list a {
+        font-size:1em
+      }
+    }
+
+
+/*--------------------BURGER NAVBAR MENU ENDS HERE---------------------------*/
+
+
+/*--------------------SOCIAL ICON STYLING STARTS HERE---------------------------*/
+
+
+.social-icons {
+  display:flex;
+  justify-content:center
+}
+.social-icons__link {
+  padding:.8rem
+}
+.social-icons__link:not(:last-child) {
+  margin-right:1em
+}
+.social-icons__link .social-icons__icon {
+  width:1.4rem;
+  height:1.4rem;
+  background-size:contain;
+  background-repeat:no-repeat
+}
+
+/*--------------------SOCIAL ICON STYLING ENDS HERE---------------------------*/
+
+
+
+
+/*--------------------SPLASH CONTAINER STARTS HERE---------------------------*/
+
+
+main {
+  padding:3rem 1.5rem 1rem
+}
+@media screen and (min-width:800px) {
+  main {
+    padding-left:calc(1.5rem + 100px)
+  }
+}
+@media screen and (max-width:799px) {
+  main {
+    padding-top:calc(3rem + 4rem)
+  }
+}
+.splash-container {
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:14px
+}
+@media screen and (min-width:800px) {
+  .splash-container {
+    font-size:18px
+  }
+}
+.splash h1 {
+  font-size:3em;
+  line-height:1;
+  letter-spacing:-.03em;
+  margin:0
+}
+.splash h2 {
+  font-size:2.25em;
+  font-weight:500;
+  line-height:1.25;
+  max-width:22em;
+  letter-spacing:-.03em
+}
+.fancy {
+  color:#C70039;
+}
+.social-handle {
+  display:inline-block;
+  margin-top:.275em;
+  color:#9b9b9b;
+  letter-spacing:.5px
+}
+.writing {
+  text-decoration:none;
+  color:#9013fe
+}
+main {
+  padding-top:0;
+  padding-bottom:0;
+  height:100%
+}
+.social-icons {
+  justify-content:flex-start;
+  padding-top:1rem;
+  margin-left:-.8rem
+}
+
+
+/*--------------------SPLASH CONTAINER ENDS HERE---------------------------*/
+
+  </style>
+</head>
+
+<body>
+  <div class="burger-container">
+    <div class="burger" aria-controls="navigation" aria-label="Menu">
+      <div class="burger-style burger-style1"></div>
+      <div class="burger-style burger-style2"></div>
+      <div class="burger-style burger-style3"></div>
+    </div>
+  </div>
+  <nav class="nav" role="navigation">
+    <ul class="nav-list">
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#">Work</a>
+      </li>
+      <li>
+        <div class="toggle-container">
+          <!-- <button class="btn-toggle">Dark</button> -->
+          <input class="btn-toggle" type="checkbox" id="switch" name="theme" /><label for="switch"></label>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <main>
+    <div class="splash-container">
+      <div class="splash">
+        <h1>Hi, I'm Niraj<span class="fancy">.</span></h1>
+        <span class="social-handle">@__ni.ru__</span>
+        <h2>
+          Welcome to my minimal blog.
+        </h2>
+        <div class="social-icons">
+<!-- <a class="social-icons__link" title="Twitter" href="" target="_blank" rel="noopener">
+  <div class="social-icons__icon" style="background-image: url('')"></div>
+</a> -->
+<a class="social-icons__link" title="GitHub"href="" target="_blank" rel="noopener">
+  <div class="social-icons__icon" style="background-image: url('https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg')"></div>
+</a>
+</div>
+</div>
+</div>
+</main>
+<script type="text/javascript">
+
+	const btn = document.querySelector(".btn-toggle");
+	const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+	const currentTheme = localStorage.getItem("theme");
+	if (currentTheme == "dark") {
+		document.body.classList.toggle("dark-theme");
+	} else if (currentTheme == "light") {
+		document.body.classList.toggle("light-theme");
+	}
+
+	btn.addEventListener("click", function () {
+		if (prefersDarkScheme.matches) {
+			document.body.classList.toggle("light-theme");
+			var theme = document.body.classList.contains("light-theme")
+			? "light"
+			: "dark";
+		} else {
+			document.body.classList.toggle("dark-theme");
+			var theme = document.body.classList.contains("dark-theme")
+			? "dark"
+			: "light";
+		}
+		localStorage.setItem("theme", theme);
+	});
+
+
+
+	function toggleMobileNavState(){
+		const body=document.querySelector("body");
+		body.classList.toggle("nav--active");
+	}
+
+	function initBurger(){
+		const burger=document.querySelector(".burger");
+		burger.addEventListener("click",toggleMobileNavState);
+	}
+
+	initBurger();
+
+
+  </script>
+<script src="index.js" crossorigin="anonymous"></script>
+</body>
+</html>
